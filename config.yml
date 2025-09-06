@@ -13,6 +13,8 @@ service:
 ports:
   - 3000
 
+env:
+
 volumes:
   - name: grafana
     hostPath: "/mnt/core_data/k3s/grafana"
