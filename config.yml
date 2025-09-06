@@ -20,6 +20,15 @@ volumes:
     hostPath: "/mnt/core_data/k3s/grafana"
     mountPath: "/var/lib/grafana"
 
+configMounts:
+  - configMap: grafana-config
+    mountPath: /etc/grafana/grafana.ini
+    subPath: grafana.ini
+    readOnly: true
+
+configMaps:
+  grafana: grafana.ini
+
 ingress:
   hosts:
     - domain: grafana.k3s.ravnet
