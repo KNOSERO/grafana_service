@@ -1,18 +1,26 @@
-name: hello-world
-namespace: hello-world
+name: grafana
+namespace: grafana
 replicas: 1
 
 image:
-  repository: hello-world
+  repository: grafana/grafana
   tag: latest
   pullPolicy: Always
 
 service:
-  type: ClusterIP
+  type: NodePort
 
 ports:
+  - 3000
 
 volumes:
+  - name: grafana
+    hostPath: "/mnt/core_data/k3s/grafana"
+    mountPath: "/var/lib/grafana"
 
 ingress:
   hosts:
+    - domain: grafana.k3s.ravnet
+      port: 3000
+    - domain: grafana.ravcube.com
+      port: 3000
