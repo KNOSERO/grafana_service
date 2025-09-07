@@ -180,7 +180,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        helm install grafana ./helm \
+                        helm upgrade --install grafana ./helm \
                             -f config.yml \
                             --kubeconfig kubeconfig.yaml \
                             --dry-run --debug
