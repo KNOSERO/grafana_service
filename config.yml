@@ -21,13 +21,14 @@ volumes:
     mountPath: "/var/lib/grafana"
 
 configMounts:
-  - configMap: grafana-config
+  - name: grafana-config
+    configMap: grafana-config
     mountPath: /etc/grafana/grafana.ini
     subPath: grafana.ini
     readOnly: true
 
 configMaps:
-  grafana: grafana.ini
+  grafana: config/grafana.ini
 
 ingress:
   hosts:
