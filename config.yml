@@ -28,7 +28,8 @@ configMounts:
     readOnly: true
 
 configMaps:
-  grafana: config/grafana.ini
+  - name: grafana
+    path: config/grafana.ini
 
 ingress:
   hosts:
